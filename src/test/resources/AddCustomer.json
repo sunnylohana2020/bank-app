@@ -1,0 +1,14 @@
+{
+  "customerAddress": {
+    "address": "12#street new bank of punjab",
+    "city": "karachi",
+    "country": "Pakistan",
+    "state": "Sindh",
+    "zip": "1222"
+  },
+  "emailId": "sunny@gmail.com",
+  "firstName": "Sunny",
+  "phone": "+923332105214",
+  "status": "ACTIVE",
+  "surname": "Lohana"
+}
