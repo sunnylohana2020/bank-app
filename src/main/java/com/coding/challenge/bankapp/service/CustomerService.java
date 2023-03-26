@@ -19,6 +19,12 @@ import java.util.stream.Collectors;
 public class CustomerService {
   @Autowired private CustomerRepository customerRepository;
 
+  /*
+   * findAll Customers
+   *
+   * @param customerDetails
+   * @return
+   */
   public List<CustomerDetails> findAll() {
     return customerRepository.findAll().stream()
         .map(ServiceMapper::convertToCustomerDto)

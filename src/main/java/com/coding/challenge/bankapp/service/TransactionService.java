@@ -17,7 +17,13 @@ public class TransactionService {
   @Autowired private TransactionRepository transactionRepository;
 
   @Autowired private AccountService accountService;
-
+  /*
+   * ADD transaction
+   * @param accountNumber
+   * @param amount
+   * @param transactionType
+   * @return
+   */
   @Transactional(rollbackFor = {Exception.class})
   public void addTransaction(UUID accountNumber, Double amount, TransactionType transactionType) {
     Account account = accountService.findIfExists(accountNumber);

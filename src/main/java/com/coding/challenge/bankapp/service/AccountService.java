@@ -21,7 +21,14 @@ public class AccountService {
   @Autowired private CustomerService customerService;
 
   @Autowired private TransactionService transactionService;
-
+  /*
+   * ADD account
+   *
+   * @param customerId
+   * @param initialCredit
+   * @param accountType
+   * @return
+   */
   public ResponseEntity<Object> addAccount(
       UUID customerId, Double initialCredit, AccountType accountType) {
     Customer customer = customerService.findIfExists(customerId);
@@ -37,9 +44,15 @@ public class AccountService {
       transactionService.addTransaction(
           account.getAccountNumber(), initialCredit, TransactionType.DEPOSIT);
     }
-    return ResponseEntity.status(HttpStatus.CREATED).body(account);
+    return ResponseEntity.status(HttpStatus.CREATED)
+        .body("Account has been created for the existing customer");
   }
-
+  /*
+   * FIND findIfExists
+   *
+   * @param accountNumber
+   * @return
+   */
   public Account findIfExists(UUID accountNumber) {
     return accountRepository
         .findByAccountNumber(accountNumber)
@@ -47,6 +60,11 @@ public class AccountService {
             () -> new RecordNotFoundException("Could not find Account with provided number "));
   }
 
+  /*
+   * Save account
+   * @param account
+   * @return
+   */
   public void save(Account account) {
     accountRepository.save(account);
   }

@@ -33,7 +33,7 @@ public class AccountController {
         @ApiResponse(code = 400, message = "Bad Request"),
         @ApiResponse(code = 500, message = "Internal Server Error")
       })
-  public ResponseEntity<Object> addNewAccount(
+  public ResponseEntity<Object> addCurrentAccount(
       @PathVariable UUID customerId, @RequestParam("initialCredit") Double initialCredit) {
 
     return accountService.addAccount(customerId, initialCredit, AccountType.CURRENT);

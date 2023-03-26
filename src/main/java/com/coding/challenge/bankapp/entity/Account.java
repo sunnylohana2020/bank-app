@@ -56,11 +56,7 @@ public class Account {
   @Temporal(TemporalType.TIME)
   private Date updatedAt;
 
-  @OneToMany(
-      mappedBy = "account",
-      cascade = CascadeType.ALL,
-      orphanRemoval = true,
-      fetch = FetchType.EAGER)
+  @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
   private List<Transaction> transactions = new ArrayList<>();
 
   @ManyToOne(fetch = FetchType.EAGER)
